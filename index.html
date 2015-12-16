@@ -1,0 +1,39 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title>Novel Test</title>
+        <meta name="description" content="">
+
+        <!-- Place favicon.ico in the root directory -->
+        <link rel="stylesheet" href="assets/css/animate.css">
+        <link rel="stylesheet" href="assets/css/app.css">
+        <link rel="stylesheet" href="assets/css/main.css">
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    </head>
+    <body style="background: url('assets/img/wall.png');background-repeat: no-repeat;background-attachment: fixed;background-position: center;background-size: cover;">
+        <div class="container-fluid">
+            <div class="row">
+                <form class="form-inline text-center">
+                    <div class="form-group">
+                        <input class="form-control" id="input" type="text" placeholder="Novel Name" autocomplete="off">
+                        <select name="type" id="type" class="form-control"></select>
+                        <select name="lang" id="lang" class="form-control"></select>
+                        <div class="loading"></div>
+                        <button id="force" class="btn btn-primary no_click"><i class="glyphicon glyphicon-search"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="container-fluid text-center">
+            <div class="row" id="data"></div>
+        </div>
+        <script src="assets/js/vendor/moment.min.js"></script>
+        <script src="assets/js/function.js"></script>
+        <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>
