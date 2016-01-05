@@ -1,9 +1,8 @@
 /* global moment */
-function checkDate(date) {
-	var now = moment()
+function checkDates(date) {
 	if (localStorage.getItem('date')) {
 		var date = localStorage.getItem('date');
-		if (moment().isBefore(date, 'day')) {
+		if (moment(date).isBefore(moment(), 'day')) {
 			return true;
 		}
 		else {
