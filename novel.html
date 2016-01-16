@@ -3,24 +3,27 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="viewport" content="height=device-height width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <title>Novel Test</title>
         <meta name="description" content="">
 
         <!-- Place favicon.ico in the root directory -->
         <link rel="stylesheet" href="assets/css/animate.css">
-        <link rel="stylesheet" href="assets/css/app.css">
+        <link rel="stylesheet" href="assets/css/novel.css">
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     </head>
     <body style="background: url('assets/img/wall.png');background-repeat: no-repeat;background-attachment: fixed;background-position: center;background-size: cover;">
         <button class="fab"><span class="fab_icon glyphicon glyphicon-chevron-left"></span></button>
         
         <div id="data" class="container">
-            <div class="row">
+            <div class="row text-center">
+                <h3 id="title"></h3>
                 <img id="cover" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjQyIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDI0MiAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MjAwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTUxNjIyYTM1MzAgdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMnB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNTE2MjJhMzUzMCI+PHJlY3Qgd2lkdGg9IjI0MiIgaGVpZ2h0PSIyMDAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSI4OS44NTE1NjI1IiB5PSIxMDUuMzYyNSI+MjQyeDIwMDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==" alt="">
                 <p id="synopsis"></p>
             </div>
         </div>
+        <script src="assets/js/vendor/moment.min.js"></script>
+        <script src="assets/js/function.js"></script>
         <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
         <script src="assets/js/bootstrap.min.js"></script>
         <script src="assets/js/novel.js"></script>

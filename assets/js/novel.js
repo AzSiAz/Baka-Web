@@ -1,4 +1,4 @@
-var base_url = 'https://azsiaz.tech:3003/';
+var base_url = 'http://azsiaz.tech:3001/';
 var novel = '';
 
 $('button.fab').click(function(e) {
@@ -7,14 +7,15 @@ $('button.fab').click(function(e) {
 });
 
 $(document).on('ready', function() {	
-	
-	novel = getTitle(window.location.search)
+    novel = decodeURIComponent(getTitle(window.location.search))
+	if (checkDates()) {
+		localStorage.clear();
+	}
 	var config = JSON.parse(localStorage.getItem('config'));
-	// console.log(config);
-	// console.log(novel);
-	var data = JSON.parse(localStorage.getItem(novel+ '_' + config.lang));
-	console.log(data);
-	$('img#cover').attr('src', (data.cover == undefined) ? '/img/not_found.jpg':data.cover)
+	var data = JSON.parse(localStorage.getItem(novel + '_' + config.lang));
+    console.log(data);
+	$('#title').text(data.title.replace(/_/g, ' '))
+	$('img#cover').attr('src', data.cover)
 	$('#synopsis').text(data.synopsis)
 })
 

@@ -8,43 +8,7 @@ html {
 	/*overflow: hidden;*/
 }
 
-.fab {
-	position: absolute;
-	display: table;
-	border:none;
-	font-size:1.5em;
-	color:white;
-	background-color: #ff4081;
-	border-radius: 50%;
-	width: 50px;
-	height: 50px;
-	margin: auto;
-	bottom: 25px;
-	left: 24px;
-	-webkit-box-shadow: 2px 3px 3px 0px rgba(41, 41, 41, .3);
-	-moz-box-shadow: 2px 3px 3px 0px rgba(41, 41, 41, .3);
-	box-shadow: 2px 3px 3px 0px rgba(41, 41, 41, .3);
-}
 
-.fab_icon {
-	margin-right: -2px;
-	/*margin: auto;
-	padding: auto;*/
-	color: white;
-	/*margin-right: 10px;*/
-}
-
-.fab_link:hover {
-	color: antiquewhite;
-}
-
-.fab_link:visited {
-	color: white;
-}
-
-.fab:hover {
-	background-color: #ff4060;
-}
 
 p.title {
 	word-break: keep-all;

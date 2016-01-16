@@ -1,7 +1,7 @@
 /* global checkDate */
-var base_url = 'https://azsiaz.tech:3003/';
+var base_url = 'http://azsiaz.tech:3001/';
 $(document).on('ready', function() {
-	if (checkDate()) {
+	if (checkDates()) {
 		localStorage.clear();
 	}
 	getDataReady();
@@ -101,6 +101,7 @@ function getDataReady() {
 	}
 	else {
 		localStorage.setItem('date', moment());
+        console.log('test');
 		localStorage.setItem('config', JSON.stringify({
 			'type': 'Light_novel',
 			'lang': 'English'
