@@ -96,7 +96,9 @@ $(document).on('ready', function() {
 function getDataReady() {
     if (checkDates()) {
 		localStorage.clear();
+        data.destroyDatabase();
 	}
+    
 	if (localStorage.getItem('config')) {
 		getTypeByVal();
 		getNovelList();

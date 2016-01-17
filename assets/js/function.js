@@ -16,7 +16,8 @@ function checkDates(date) {
 }
 
 function Data() {
-    var pouch = new PouchDB('mydb', {size: 100});
+    // var pouch = new PouchDB('mydb', {size: 100});
+    var pouch = new PouchDB('mydb', {adapter: 'fruitdown'});
     
     Data.prototype.getItem = function getItem(key) {
         return new Promise(function(resolve, reject) {
@@ -61,6 +62,14 @@ function Data() {
                 reject(err);
             });
         })
+    }
+    
+    Data.prototype.destroyDatabase = function destroyDatabase() {
+        pouch.destroy().then(function (response) {
+            console.log('Database Deleted')
+        }).catch(function (err) {
+            console.log(err);
+        });
     }
 
 }
