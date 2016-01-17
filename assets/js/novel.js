@@ -13,7 +13,6 @@ $(document).on('ready', function() {
 		localStorage.clear();
 	}
 	var config = JSON.parse(localStorage.getItem('config'));
-	// var data = JSON.parse(localStorage.getItem(novel + '_' + config.lang));
     data.getItem(novel + '_' + config.lang).then(function(res) {
         $('#title').text(res.val.title.replace(/_/g, ' '))
         $('img#cover').attr('src', res.val.cover)
@@ -21,8 +20,6 @@ $(document).on('ready', function() {
     }, function(err) {
         console.log('Error')
     })
-    // console.log(data);
-	
 })
 
 function getTitle(url) {
