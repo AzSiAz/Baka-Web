@@ -1,9 +1,8 @@
 /* global checkDate */
 var base_url = 'http://azsiaz.tech:3001/';
+var data = new Data();
+
 $(document).on('ready', function() {
-	if (checkDates()) {
-		localStorage.clear();
-	}
 	getDataReady();
 	
 	window.onresize = resize;
@@ -95,13 +94,15 @@ $(document).on('ready', function() {
 })
 
 function getDataReady() {
+    if (checkDates()) {
+		localStorage.clear();
+	}
 	if (localStorage.getItem('config')) {
 		getTypeByVal();
 		getNovelList();
 	}
 	else {
 		localStorage.setItem('date', moment());
-        console.log('test');
 		localStorage.setItem('config', JSON.stringify({
 			'type': 'Light_novel',
 			'lang': 'English'
@@ -230,18 +231,20 @@ function createCard(data) {
 }
 
 function getCover(id, config) {
-	if (localStorage.getItem(id + '_' + config.lang) == 'undefined') {
-		$('img[id="' + id + '"]').attr('src', 'assets/img/not_found.jpg');
-	}
-	else if (localStorage.getItem(id + '_' + config.lang)) {
-		$('img[id="' + id + '"]').attr('src', JSON.parse(localStorage.getItem(id + '_' + config.lang)).cover);
-	}
-	else {
-		$.get(base_url + 'title/query/?title=' + id, function(res) {
-			localStorage.setItem(id + '_' + config.lang, JSON.stringify(res));
-			$('img[id="' + id + '"]').attr('src', res.cover);
-		})
-	}
+    data.getItem().then(function(res) {
+        if (res.val) {
+            $('img[id="' + id + '"]').attr('src', res.val.cover);
+        }
+        else {
+            $('img[id="' + id + '"]').attr('src', 'assets/img/not_found.jpg');
+        }
+    }, function(err) {
+        $.get(base_url + 'title/query/?title=' + id, function(res) {
+            // localStorage.setItem(id + '_' + config.lang, JSON.stringify(res));
+            data.setItem(id + '_' + config.lang, res)
+            $('img[id="' + id + '"]').attr('src', res.cover);
+        })
+    })
 }
 
 function bootstrapCard() {
@@ -324,7 +327,7 @@ function resize() {
 }
 
 function orientationchange() {
-	console.log(window.orientation);
+	// console.log(window.orientation);
 	if (window.innerWidth < 768 && $('#force').hasClass('click') && (window.orientation == '90' || window.orientation == '-90')) {
 		$('div.thumbnail').map(function(i, element) {
 			$(element).parent().addClass('col-xs-6');

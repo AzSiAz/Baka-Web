@@ -1,8 +1,9 @@
+/* global PouchDB */
 /* global moment */
 function checkDates(date) {
 	if (localStorage.getItem('date')) {
 		var date = localStorage.getItem('date');
-		if (moment(date).isBefore(moment(), 'day')) {
+		if (moment(new Date(date)).isBefore(moment(), 'day')) {
 			return true;
 		}
 		else {
@@ -12,4 +13,75 @@ function checkDates(date) {
 	else {
 		return false;
 	}
-;}
+}
+
+function Data() {
+    var pouch = new PouchDB('mydb', {size: 100});
+    
+    Data.prototype.getItem = function getItem(key) {
+        return new Promise(function(resolve, reject) {
+            return pouch.get(key).then(function (doc) {
+                resolve(doc)
+            }).catch(function (err) {
+                reject(err);
+            });
+        })
+    }
+
+    Data.prototype.setItem = function setItem(key, value) {
+        return new Promise(function(resolve, reject) {
+            return pouch.get(key).then(function(doc) {
+                return pouch.put({
+                    _id: key,
+                    _rev: doc._rev,
+                    val: value
+                });
+            }).then(function(response) {
+                resolve(response)
+            }).catch(function (err) {
+                return pouch.put({
+                        _id: key,
+                        val: value
+                }).then(function(response) {
+                    resolve(response)
+                }, function(err) {
+                    reject(err)
+                })
+            })
+        })
+    }
+    
+    Data.prototype.removeItem = function removeItem(key) {
+        return new Promise(function(resolve, reject) {
+            return pouch.get(key).then(function(doc) {
+                return pouch.remove(doc);
+            }).then(function (result) {
+                resolve(result);
+            }).catch(function (err) {
+                reject(err);
+            });
+        })
+    }
+
+}
+
+
+// var s = new Data();
+
+// s.removeItem('test').then(function(res) {
+//     console.log(res);
+// }, function(err) {
+//     console.log(err);
+// })
+
+// s.setItem('test', 'test3').then(function(res) {
+//     console.log(res);   
+// }, function(err) {
+//     console.log(err);
+// })
+
+// s.getItem('test').then(function(res) {
+//     console.log(res.val);
+// }, function(err) {
+//     console.log(err);
+// })

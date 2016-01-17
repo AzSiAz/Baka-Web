@@ -1,5 +1,6 @@
 var base_url = 'http://azsiaz.tech:3001/';
 var novel = '';
+var data = new Data();
 
 $('button.fab').click(function(e) {
 	e.preventDefault();
@@ -12,11 +13,16 @@ $(document).on('ready', function() {
 		localStorage.clear();
 	}
 	var config = JSON.parse(localStorage.getItem('config'));
-	var data = JSON.parse(localStorage.getItem(novel + '_' + config.lang));
-    console.log(data);
-	$('#title').text(data.title.replace(/_/g, ' '))
-	$('img#cover').attr('src', data.cover)
-	$('#synopsis').text(data.synopsis)
+	// var data = JSON.parse(localStorage.getItem(novel + '_' + config.lang));
+    data.getItem(novel + '_' + config.lang).then(function(res) {
+        $('#title').text(res.val.title.replace(/_/g, ' '))
+        $('img#cover').attr('src', res.val.cover)
+        $('#synopsis').text(res.val.synopsis)
+    }, function(err) {
+        console.log('Error')
+    })
+    // console.log(data);
+	
 })
 
 function getTitle(url) {
