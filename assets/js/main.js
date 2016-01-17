@@ -231,7 +231,7 @@ function createCard(data) {
 }
 
 function getCover(id, config) {
-    data.getItem().then(function(res) {
+    data.getItem(id + '_' + config.lang).then(function(res) {
         if (res.val) {
             $('img[id="' + id + '"]').attr('src', res.val.cover);
         }
@@ -240,7 +240,6 @@ function getCover(id, config) {
         }
     }, function(err) {
         $.get(base_url + 'title/query/?title=' + id, function(res) {
-            // localStorage.setItem(id + '_' + config.lang, JSON.stringify(res));
             data.setItem(id + '_' + config.lang, res)
             $('img[id="' + id + '"]').attr('src', res.cover);
         })
