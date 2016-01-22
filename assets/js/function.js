@@ -71,26 +71,4 @@ function Data() {
             console.log(err);
         });
     }
-
 }
-
-
-// var s = new Data();
-
-// s.removeItem('test').then(function(res) {
-//     console.log(res);
-// }, function(err) {
-//     console.log(err);
-// })
-
-// s.setItem('test', 'test3').then(function(res) {
-//     console.log(res);   
-// }, function(err) {
-//     console.log(err);
-// })
-
-// s.getItem('test').then(function(res) {
-//     console.log(res.val);
-// }, function(err) {
-//     console.log(err);
-// })
