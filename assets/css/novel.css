@@ -1,14 +1,35 @@
+html {
+    width: 100%;
+	height: 100%;
+    /*overflow: hidden;*/
+}
+
 #title {
 	/*margin-top: 25px;*/
 	margin-bottom: 25px;
 }
 
 #cover {
-	margin-bottom: 25px;
+	/*margin-bottom: 25px;*/
+    float: left; 
+    margin-right:20px;
 }
 
 #synopsis {
+    margin-top: 100px;
 	margin-bottom: 50px;
+    padding-left: 5px;
+    border: 1px solid black;
+    background-color: rgba(103, 128, 159, .6);
+    color: black;
+}
+
+#list {
+    padding-left: 25%;
+}
+
+#list li {
+    list-style-type: circle;
 }
 
 .fab {
@@ -59,4 +80,14 @@
 		bottom: auto;
 		top: 10px;
 	}
+    
+    #synopsis {
+        padding-top: 15px;
+        margin-bottom: 50px;
+    }
+    
+    #cover {
+        float: none;
+        margin-bottom: 25px;
+    }
 }

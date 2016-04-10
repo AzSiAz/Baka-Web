@@ -1,4 +1,4 @@
-var base_url = 'http://azsiaz.tech:3001/';
+var base_url = 'https://api.azsiaz.tech/';
 var novel = '';
 var data = new Data();
 

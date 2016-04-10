@@ -1,5 +1,5 @@
 /* global checkDate */
-var base_url = 'http://azsiaz.tech:3001/';
+var base_url = 'https://api.azsiaz.tech/';
 var data = new Data();
 
 $(document).on('ready', function() {
