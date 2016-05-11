@@ -94,7 +94,7 @@ $(document).on('ready', function() {
 })
 
 function getDataReady() {
-    if (checkDates()) {
+	if (checkDates()) {
 		localStorage.clear();
         data.destroyDatabase();
 	}
